@@ -1,0 +1,18 @@
+.barra{
+margin-right: 15px;
+padding: 10px;
+border-radius: 5px;
+}
+
+.agregar{
+    background-color: pink;
+    color: purple;
+    border: 0;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10px;
+    margin: 25px 0 25px 0;
+    margin-right: 15px;
+    cursor: pointer;
+}
