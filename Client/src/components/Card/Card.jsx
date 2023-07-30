@@ -45,6 +45,10 @@ const Card = ({ id, name, status, species, gender, origin, image, onClose, remov
    return (
 
       <div className={style.contenedor}>
+         <div className={style.img}>
+            <img src={image} alt='' className={style.img} />
+         </div>
+         <div className={style.detail}>
          {
             isFav ? (
                <button onClick={handleFavorite}>❤️</button>
@@ -52,16 +56,15 @@ const Card = ({ id, name, status, species, gender, origin, image, onClose, remov
                <button onClick={handleFavorite}>🤍</button>
             )
          }
-         <button className={style.click} onClick={() => { onClose(id) }}>X</button>
-         <NavLink to={`/detail/${id}`} style={{ textDecoration: 'none', color: 'white' }} >
-            <h2 className={style.name}>{name}</h2>
-         </NavLink>
+            <NavLink to={`/detail/${id}`} style={{ textDecoration: 'none', color: 'white' }} >
+               <h2 className={style.name}>{name}</h2>
+            </NavLink>
 
-         <h2 className={style.status}>{status}</h2>
-         <h2 style={StyleSpecie} >{species}</h2>
-         <h2 style={StyleGender}>{gender}</h2>
-         {/* <h2 className={style.origin} >{origin}</h2> */}
-         <img src={image} alt='' className={style.img} />
+            <h2 className={style.status}>{status}</h2>
+            <h2 style={StyleSpecie} >{species}</h2>
+            <h2 style={StyleGender}>{gender}</h2>
+         </div>
+         <button className={style.click} onClick={() => { onClose(id) }}>X</button>
       </div>
    );
 }

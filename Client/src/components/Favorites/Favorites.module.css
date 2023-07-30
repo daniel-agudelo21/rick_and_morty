@@ -1,0 +1,32 @@
+.select {
+    font-size: 16px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #333;
+    width: 200px;
+    margin: 10px 20px;
+}
+
+.select:hover {
+    border-color: #8bff1e;
+    cursor: pointer;
+}
+
+.select:focus {
+    outline: none;
+    border-color: #8bff1e;
+    /* Cambia el color para resaltar cuando está enfocado */
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+h2 {
+    color: white;
+}
+
+.contenedor {
+display: flex;
+flex-wrap: wrap;
+justify-content:space-evenly;
+}
