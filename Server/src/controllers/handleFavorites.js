@@ -1,16 +1,27 @@
 let myFavorites = []
 
-const postFav = (req, res) =>{
-    const character = req.body
-    myFavorites.push(character)
+const postFav = (req, res) => {
+    try {
+        const character = req.body
 
-    return res.status(200).json(myFavorites)
+        const characterFound = myFavorites.find((fav) => fav.id === character.id)
+
+        if (characterFound) throw new Error('Ya está el personaje en favoritos')
+        
+        myFavorites.push(character)
+
+        return res.status(200).json(myFavorites)
+
+    } catch (error) {
+        return res.status(404).send(error.message)
+    }
+
 }
 
-const deleteFav = (req, res) =>{
-    const {id} = req.params
+const deleteFav = (req, res) => {
+    const { id } = req.params
 
-    myFavorites = myFavorites.filter((favorite)=> favorite.id !== id)
+    myFavorites = myFavorites.filter((favorite) => favorite.id !== +id)
     return res.status(200).json(myFavorites)
 }
 

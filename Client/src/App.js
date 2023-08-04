@@ -8,6 +8,7 @@ import About from './components/About/About';
 import Detail from './components/Detail/Detail';
 import Form from './components/Form/Form';
 import Favorites from './components/Favorites/Favorites';
+const URL = 'http://localhost:3001/rickandmorty/login/';
 
 function App() {
 
@@ -20,15 +21,18 @@ function App() {
 
 
 
-   const login = (userData) => {
-      const { email, password } = userData;
-      const URL = 'http://localhost:3001/rickandmorty/login/';
-      axios(URL + `?email=${email}&password=${password}`)
-      .then(({ data }) => {
+   const login = async (userData) => {
+      try {
+         const { email, password } = userData;
+         const { data } = await axios(URL + `?email=${email}&password=${password}`)
          const { access } = data;
+
          setAccess(access);
          access && navigate('/home');
-      });
+      } catch (error) {
+         console.log(error.message);
+      }
+
    }
 
    useEffect(() => {
@@ -36,16 +40,15 @@ function App() {
    }, [access])
 
 
-   const onSearch = (id) => {
-      axios(`http://localhost:3001/rickandmorty/character/${id}`)
-         .then(response => response.data)
-         .then((data) => {
-            if (data.name) {
-               setCharacters((oldChars) => [...oldChars, data]);
-            } else {
-               alert('¡No hay personajes con este ID!');
-            }
-         });
+   const onSearch = async (id) => {
+      try {
+         const { data } = await axios(`http://localhost:3001/rickandmorty/character/${id}`)
+         if (data.name) {
+            setCharacters((oldChars) => [...oldChars, data]);
+         }
+      } catch (error) {
+         alert('¡No hay personajes con este ID!');
+      }
    }
 
    const onClose = (id) => {
