@@ -1,8 +1,38 @@
-.contenedor {
-    display: inline-block;
+.contenedorGlobal {
+    display: inline-flex;
+    margin: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(128, 0, 128, 0.308);
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.315);
+}
+
+.contenedorText {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 1px solid blue;
+    padding: 20px;
+    margin-left: 10px;
+}
+
+.contenedorImage {
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 1px solid red;
+    padding: 20px;
+    margin-right: 10px;
+
+
+}
+
+.img {
+    padding-top: 10px;
+    
     
 }
 
-.contenedorImage{
-    display: inline-block;
+img{
+    border-radius: 18.8rem;
 }
