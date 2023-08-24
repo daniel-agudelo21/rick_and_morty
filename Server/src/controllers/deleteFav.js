@@ -4,7 +4,7 @@ const deleteFav = async (req, res) => {
     try {
         const { id } = req.params
         const characterDelete = await Favorite.findByPk(id)
-        characterDelete.destroy()
+        await characterDelete.destroy()
 
         const allFavorites = await Favorite.findAll()
         res.status(200).json(allFavorites)
